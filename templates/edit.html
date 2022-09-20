@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>body{
+        text-align: center;
+        color:white;
+        background-image: url("https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_960_720.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+                 }
+                 .form-control{
+        max-width: 45%;
+        margin-left: 28%;
+    }
+    h2{color: pink;}
+     </style>
+</head>
+<body>
+    <h1 class="bg-dark text-white">Edit Student Deatils</h1>
+    <div style="padding-top:10px;padding-left:30px; ">
+
+    <form method="post" action="/edit_student_details/{{ students.id }}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label <h2>Enter student Name</h2></label>
+        <input type="text" class="form-control" name="student_name" value="{{ students.student_name }}"><br>
+        <label <h2>Enter Student Place</h2></label>
+        <input type="text" class="form-control" name="place" value="{{ students.place }}"><br>
+        <label <h2>Enter Student Age</h2></label>
+        <input type="text" class="form-control" name="age" value="{{ students.age }}"><br>
+        <label <h2>Enter Student Mark</h2></label>
+        <input type="text" class="form-control" name="marks" value="{{ students.marks }}"><br>
+
+        <label <h2>Image</h2></label>
+        <input type="file" class="form-control" name="file" accept="image/*"><br>
+        
+        <button type="submit"class="btn btn-success">Update</button>
+        <input type=button value="Previous Page"class="btn btn-primary" onClick="javascript:history.go(-1);">
+    </form>
+</body>
+</html>

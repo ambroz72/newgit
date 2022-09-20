@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>body{
+        text-align: center;
+        background-image: url("https://cdn.pixabay.com/photo/2018/08/23/07/35/thunderstorm-3625405__340.jpg");
+        background-size: cover;
+                 }
+        .form-control{
+        max-width: 45%;
+        margin-left: 28%;
+    }
+    h2{color: black;}
+     </style>
+</head>
+<body>
+    <h1 class="bg-dark text-white">Add Student Deatils</h1><br><br>
+    <div style="padding-top:10px;padding-left:30px; ">
+      <div class="fo">  
+    <form method="post" action="{% url 'add_student_details' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name"><h2>Name</h2></label>
+        <input type="text" class="form-control"name="student_name" placeholder="Enter the student name"><br>
+        <label><h2> Place</h2></h2></label>
+        <input type="text" class="form-control" name="place"placeholder="Enter the student place" required><br>
+        <label><h2>Age</h2></label>
+        <input type="number" class="form-control" class="form-control" name="age"placeholder="Enter the student age" ><br>
+        <label><h2>Mark</h2></label>
+        <input type="number"class="form-control"  name="marks"placeholder="Enter the student mark"><br>
+        <label><h2>Image</h2><label>
+        <input type="file" name="file" accept="image/*"><br>
+        <button  type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</div>
+<a href="{% url 'show_students' %}" class="btn btn-secondary">Show student database</a><br>
+
+
+</body>
+</html>

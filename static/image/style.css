@@ -1,0 +1,15 @@
+.form-control {
+    max-width: 45%;
+    margin-left: 28%;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    color: pink;
+}
+
+.form-control {
+    max-width: 45%;
+    margin-left: 28%;
+}

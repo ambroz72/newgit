@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+    <title>Show</title>
+    <style>body{
+        
+        background-image: url("https://assets.cntraveller.in/photos/6206483ac78f51616154fb6b/16:9/w_1024%2Cc_limit/maldives-astronomy-milky-way.jpg");
+        background-size: cover;
+                 }
+     </style>
+
+</head>
+<body><center>
+    <div class="student">
+    <h1 class="bg-dark text-white"> Students Deatils</h1>
+    <div style="padding-top:20px;padding-left:60px; ">
+    <a href="{% url 'addStudent' %}" class="btn btn-secondary">Add a student</a><br>
+    <table border="3px">
+        <thead>
+            <tr>
+                <th>STUDENT ID</th>
+                <th>STUDENT NAME</th>
+                <th>STUDENT PLACE</th>
+                <th>STUDENT AGE</th>
+                <th>STUDENT MARKS</th>
+                <th>IMAGE</th>
+                <th>ACTION..</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in student %}  
+            <tr>
+                <td><b>{{ s.id }}</td>
+                <td><b>{{ s.student_name }}</td>
+                <td><b>{{ s.place }}</td>
+                <td><b>{{ s.age }}</td>
+                <td><b>{{ s.marks }}</td>
+                <td>
+                    {% if s.user_image %}
+                    <img src="{{ s.user_image.url }}" height="200vw" width="200vw"><br>
+                    {% else %}
+                    <img src=" {% static 'image/default.jpeg' %}" height="200vw" width="200vw"><br>
+                    {% endif %}
+
+                </td>
+                <td>
+                    <a href="{% url 'editpage' s.id %}" class="btn btn-success">Edit</a>
+
+                    {% comment %} <a href="/editpage/{{s.id}}" class="btn btn-success">Edit</a> {% endcomment %}
+                    <a href="/delete_student/{{s.id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr></center>
+    </div>   
+        {% endfor %}  
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

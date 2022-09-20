@@ -1,0 +1,6 @@
+{
+    "workbench.editor.decorations.colors": true,
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorStyle": "block"
+}
